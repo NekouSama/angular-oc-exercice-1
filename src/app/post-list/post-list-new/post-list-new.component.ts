@@ -15,8 +15,8 @@ export class PostListNewComponent implements OnInit {
   postForm: FormGroup
 
   constructor(private formBuilder: FormBuilder,
-              private postsService: PostService,
-              private router: Router) { }
+    private postsService: PostService,
+    private router: Router) { }
 
   ngOnInit() {
     this.initForm();
@@ -33,8 +33,7 @@ export class PostListNewComponent implements OnInit {
     const title = this.postForm.get('title').value;
     const content = this.postForm.get('content').value;
     const newPost = new Post(title, content);
-    this.postsService.addNewPost(newPost);
-    return this.router.navigate(['/posts']);    
+    this.postsService.addNewPost(newPost)
   }
 
 }

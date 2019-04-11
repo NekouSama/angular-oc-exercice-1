@@ -11,11 +11,11 @@ import { Subscription } from 'rxjs';
 })
 export class PostListComponent implements OnInit {
 
-  posts: Post[]
+  posts: Post[] = [];
   postSubscription: Subscription;
 
-  constructor(private postsService: PostService,private router: Router) { }
-  
+  constructor(private postsService: PostService, private router: Router) { }
+
   ngOnInit() {
     this.postSubscription = this.postsService.postsSubject.subscribe(
       (posts: Post[]) => {
@@ -24,10 +24,6 @@ export class PostListComponent implements OnInit {
     )
     this.postsService.getPostFromServer();
     this.postsService.emitPostsSubject();
-  }
-
-  onNewPost() {
-    this.router.navigate(['/posts', 'new'])
   }
 
   ngOnDestroy(): void {
