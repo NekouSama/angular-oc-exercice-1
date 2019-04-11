@@ -1,9 +1,17 @@
 <h2><strong>Posts</strong></h2>
+<hr>
+<p class="alert alert-warning" *ngIf="!posts">
+    <strong>Attention!</strong> Il n'y a aucun Post.
+</p>
+<p class="alert alert-info" *ngIf="!posts">
+    <strong>Info!</strong> Vous pouvez créer des articles en cliquant sur "Nouveau post".
+</p>
 <ul class="list-group">
-    <app-post-list-item *ngFor="let post of posts"
+    <app-post-list-item *ngFor="let post of posts; let i = index"
     [postTitle]="post.title"
     [postContent]="post.content"
     [postLoveIts]="post.loveIts"
-    [postCreatedAt]="post.created_at"
+    [postCreatedAt]="post.createdAt"
+    [post]="post"
     ></app-post-list-item>
 </ul>
