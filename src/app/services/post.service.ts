@@ -31,6 +31,7 @@ export class PostService {
   }
 
   getPostFromServer() {
+    
     this.httpClient
         .get<any[]>('https://http-client-demo-access.firebaseio.com/post.json')
         .subscribe(
